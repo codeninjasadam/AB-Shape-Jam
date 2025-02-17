@@ -9,6 +9,7 @@ public class EnemyEmitterController : MonoBehaviour
     // spawn rate is how often enemies will spawn
     // nextSpawn is given an initial value so that the one 
     // in the scene doesn't get doubled up with an immediate spawn
+    public GameObject GiantEnemy;
     public GameObject Enemy;
     private PlayerControls playerController;
     public float spawnRate;
@@ -41,7 +42,13 @@ public class EnemyEmitterController : MonoBehaviour
             {
                 float randomX = Random.Range(-6.0f, 6.0f);
                 Vector3 enemyPosition = new Vector3(randomX, 6, 0);
-                Instantiate(Enemy, enemyPosition, transform.rotation);
+                transform.position = enemyPosition;
+                Instantiate(Enemy, transform.position, transform.rotation);
+                
+            }
+            if (playerController.currentLevel % 3 == 0)
+            {
+                Instantiate(GiantEnemy, transform.position, transform.rotation);
             }
 
             /*****************************\

@@ -49,6 +49,10 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        //if ()
+        //{
+         //   Destroy(gameObject);
+        //}
         // Null check!
         if (playerController.gameOver)
         {
